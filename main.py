@@ -71,6 +71,8 @@ class FileMenu(Menu):
         self.add_command(label = "Open...", command = self.openFile)
         self.add_command(label = "Save", command = self.saveFile)
         self.add_command(label = "Save As", command = self.saveAsFile)
+        self.add_separator()
+        self.add_command(label = "Exit", command = self.exit)
 
 
     def newFile(self):
@@ -105,6 +107,9 @@ class FileMenu(Menu):
         with open(filename, mode="w") as file:
             file.write(content)
             file.close()
+
+    def exit(self):
+        self.notepad.quit()
 
 
 window = NotePad()
